@@ -20,7 +20,7 @@ console.log("User flipped " + cardTwo);
 
   function flipCard (cardId) {
     
-    console.log("User flipped" + cards[cardId] );
+    console.log("User flipped" + cards[cardId].rank );
   }
 
  flipCard (0);
@@ -36,7 +36,24 @@ console.log("User flipped " + cardTwo);
 
   }
 
-  
+  var cards = [
+{
+rank: 'queen',
+suit: 'heart',
+cardImage: "images/queen-of-hearts.png"
+}
 
+];
+
+function createBoard(){
+ 
+for (var i = 0; i < arrayName.length; i++) {
+
+    
+}
+cardElement.setAttribute('data-id', i );
+}
+
+var cardElement = document.createElement('img');
 
 
