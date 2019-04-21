@@ -1,59 +1,73 @@
-console.log("Up and running!");
-var cardOne = "queen";
-var cardTow = "King";
-var cardThree = "joker";
-var cardFour = "princess";
 
-var cards = new Array( "queen" , "king" );
-var cardsInPlay [];
-
-
-var cardOne = cards[0];
-cardsInPlay.push(cardOne);
-console.log("User flipped " + cardOne);
-
-var cardTwo = cards[2];
-cardsInPlay.push(cardTwo);
-console.log("User flipped " + cardTwo);
-
-
-
-  function flipCard (cardId) {
-    
-    console.log("User flipped" + cards[cardId].rank );
-  }
-
- flipCard (0);
- flipCard (2);
-
-  function checkForMatch() {
-
-  	if (cardsInPlay[0] === cardsInPlay[1]) {
-  console.log("You found a match!");
-} else {
-  console.log("Sorry, try again.");
-}
-
-  }
-
-  var cards = [
+var cardsInPlay=[];
+var cards = [
 {
-rank: 'queen',
-suit: 'heart',
+rank: "queen" ,
+suit: "heart" ,
 cardImage: "images/queen-of-hearts.png"
 }
+,
+{
+rank: "queen" ,
+suit: "diamonds" ,
+cardImage: "images/queen-of-diamonds.png"
+}
+,
+{
+rank: "King" ,
+suit: "hearts" ,
+cardImage: "images/king-of-hearts.png"
+}
+,
+{
+rank: "King" ,
+suit: "diamonds" ,
+cardImage: "images/king-of-diamonds.png"
+}
 
-];
 
-function createBoard(){
+
+
+
+]
+
+
+  var checkForMatch=function() {
+
+    if (cardsInPlay.length===2){
+  	if (cardsInPlay[0]===cardsInPlay[1]) 
+  alert("You found a match!");
+else 
+  alert("Sorry, try again.");
+}
+
+  }
+
+var flipcard = function(){ 
+
+
+var cardId = this.getAttribute('data-id');
+console.log("User flipped" + cards[cardId].rank);
+cardsInPlay.push(cards[cardId].rank);
+this.setAttribute('src', cards[cardId].cardImage)
+checkForMatch();
+console.log(cards[cardId].cardImage);
+console.log(cards[cardId].suit);
+}
+
+
+
+var createBoard = function(){
  
-for (var i = 0; i < arrayName.length; i++) {
+for (var i = 0; i < cards.length; i++) {
 
-    
-}
-cardElement.setAttribute('data-id', i );
-}
-
+    console.log(cardElement);
 var cardElement = document.createElement('img');
-
+cardElement.setAttribute('src','images/back.png' );
+cardElement.setAttribute('data-id', i );
+cardElement.addEventListener('click' , flipcard);
+document.getElementById('game-board').appendChild(cardElement);
+}
+}
+createBoard();
 
